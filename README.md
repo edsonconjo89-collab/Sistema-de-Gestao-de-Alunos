@@ -2,29 +2,6 @@
 
 Sistema completo para gerenciamento acadêmico com persistência de dados em Java.
 
-## 🚀 Tecnologias
-- Java 17
-- Serialização para persistência
-- Streams API
-- Collections Framework
-
-  
-## 🏗️ Estrutura do Projeto
-
-```
-src/
-├── model/
-│   └── Aluno.java
-├── service/
-│   └── ServiceAlunos.java
-├── storage/
-│   └── ArmazenamentoDisco.java
-├── app/
-│   └── SistemaDeGestaoDeAlunos.java
-└── ui/
-    └── UI.java
-```
-
 ## 🎯 Funcionalidades
 
 ### 📊 Gestão de Alunos
@@ -42,14 +19,6 @@ src/
 - **Salvamento Automático**: Dados persistidos automaticamente
 - **Recuperação**: Carregamento automático ao iniciar
 - **Serialização**: Dados salvos em formato binário
-
-## 🔧 Tecnologias Utilizadas
-
-- **Java 17**: Versão LTS com suporte de longo prazo
-- **Streams API**: Processamento funcional de coleções
-- **Collections Framework**: Estruturas de dados otimizadas
-- **Serialização**: Persistência de objetos em disco
-- **Lambda Expressions**: Código mais conciso e legível
 
 ## 📁 Armazenamento de Dados
 
