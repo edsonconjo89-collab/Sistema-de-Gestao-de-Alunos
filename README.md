@@ -1,0 +1,123 @@
+# Sistema de Gestão de Alunos
+
+Sistema completo para gerenciamento acadêmico com persistência de dados em Java.
+
+## 🚀 Tecnologias
+- Java 17
+- Serialização para persistência
+- Streams API
+- Collections Framework
+
+  
+## 🏗️ Estrutura do Projeto
+
+```
+src/
+├── model/
+│   └── Aluno.java
+├── service/
+│   └── ServiceAlunos.java
+├── storage/
+│   └── ArmazenamentoDisco.java
+├── app/
+│   └── SistemaDeGestaoDeAlunos.java
+└── ui/
+    └── UI.java
+```
+
+## 🎯 Funcionalidades
+
+### 📊 Gestão de Alunos
+- **CRUD Completo**: Criar, ler, atualizar e remover alunos
+- **Validação de Dados**: Verificação de matrícula única e dados válidos
+- **Dual Storage**: Otimização com List e Map para acesso rápido
+
+### 🔍 Buscas e Filtros
+- **Busca por Matrícula**: Acesso direto via HashMap
+- **Filtro por Curso**: Listagem de alunos por curso específico
+- **Status Acadêmico**: Identificação de alunos aprovados
+- **Ranking**: Ordenação por média decrescente
+
+### 💾 Persistência
+- **Salvamento Automático**: Dados persistidos automaticamente
+- **Recuperação**: Carregamento automático ao iniciar
+- **Serialização**: Dados salvos em formato binário
+
+## 🔧 Tecnologias Utilizadas
+
+- **Java 17**: Versão LTS com suporte de longo prazo
+- **Streams API**: Processamento funcional de coleções
+- **Collections Framework**: Estruturas de dados otimizadas
+- **Serialização**: Persistência de objetos em disco
+- **Lambda Expressions**: Código mais conciso e legível
+
+## 📁 Armazenamento de Dados
+
+Os dados são automaticamente salvos nos arquivos:
+- `listalunos.sga` e `mapalunos.sga` - Persistência dos registros
+
+## 🎨 Interface
+
+Interface de linha de comando (CLI) intuitiva com menu interativo:
+
+```
+=== SISTEMA DE GESTÃO DE ALUNOS ===
+1. Adicionar novo aluno
+2. Listar todos os alunos
+3. Buscar aluno por matrícula
+4. Atualizar aluno
+5. Remover aluno
+6. Listar alunos por curso
+7. Mostrar alunos aprovados
+8. Ranking por média
+9. Sair
+```
+
+## 📊 Modelo de Dados
+
+A classe `Aluno` contém:
+- Matrícula (única)
+- Nome completo
+- Curso
+- Media
+
+## ⚡ Otimizações
+
+1. **Acesso O(1)**: Busca por matrícula usando HashMap
+2. **Ordenação eficiente**: Uso de Streams para rankings
+3. **Persistência inteligente**: Salvamento apenas quando necessário
+4. **Validação em tempo real**: Verificação durante entrada de dados
+
+## 🔒 Tratamento de Erros
+
+- Matrículas duplicadas
+- Média fora do intervalo (0-20)
+- Dados obrigatórios ausentes
+- Erros de entrada/saída de arquivos
+
+## 📈 Métricas de Qualidade
+
+- Código modularizado em camadas
+- Separação de responsabilidades
+- Baixo acoplamento
+- Alta coesão
+- Tratamento adequado de exceções
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## ✨ Recursos Futuros
+
+- [ ] Interface gráfica (JavaFX/Swing)
+- [ ] Exportação para PDF/Excel
+- [ ] Autenticação de usuários
+- [ ] Dashboard estatístico
+- [ ] API REST
+- [ ] Integração com banco de dados
+
+---
+
+**Desenvolvido com ❤️ usando Java puro**
+
+*Sistema educacional para fins acadêmicos*
