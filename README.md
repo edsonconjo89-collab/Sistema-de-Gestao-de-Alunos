@@ -73,34 +73,12 @@ Interface de linha de comando (CLI) intuitiva com menu interativo:
 9. Sair
 ```
 
-## 📊 Modelo de Dados
-
-A classe `Aluno` contém:
-- Matrícula (única)
-- Nome completo
-- Curso
-- Media
-
-## ⚡ Otimizações
-
-1. **Acesso O(1)**: Busca por matrícula usando HashMap
-2. **Ordenação eficiente**: Uso de Streams para rankings
-3. **Persistência inteligente**: Salvamento apenas quando necessário
-4. **Validação em tempo real**: Verificação durante entrada de dados
-
 ## 🔒 Tratamento de Erros
 
 - Matrículas duplicadas
 - Média fora do intervalo (0-20)
 - Dados obrigatórios ausentes
 - Erros de entrada/saída de arquivos
-
-## 📈 Métricas de Qualidade
-
-- Código modularizado em camadas
-- Separação de responsabilidades
-- Baixo acoplamento
-- Alta coesão
 - Tratamento adequado de exceções
 
 ## 📄 Licença
