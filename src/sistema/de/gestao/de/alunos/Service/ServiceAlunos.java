@@ -14,11 +14,15 @@ public class ServiceAlunos implements Serializable{
     private static final long serialVersionUID = 1L;
     private List<Aluno> listaAlunos;
     private Map<Integer, Aluno> mapaAlunos;
+    private ArmazenamentoDisco gerenciarDisco;
     
-    public ServiceAlunos(){
+    public ServiceAlunos(ArmazenamentoDisco gerenciarDisco){
         this.listaAlunos = new ArrayList<>();
         this.mapaAlunos = new HashMap<>();
-        this.lerDados();
+        this.gerenciarDisco = gerenciarDisco;
+        
+        this.listaAlunos = this.gerenciarDisco.lerEmDiscoList();
+        this.mapaAlunos = this.gerenciarDisco.lerEmDiscoMapa();
     }
     
     public boolean cadastrarAluno(Aluno aluno){
@@ -27,7 +31,7 @@ public class ServiceAlunos implements Serializable{
         }else{
             listaAlunos.add(aluno);
             mapaAlunos.put(aluno.getMatricula(), aluno);
-            this.guardarDados();
+            gerenciarDisco.guardarDados(listaAlunos,mapaAlunos);
             return true;
         }
     }
@@ -49,7 +53,7 @@ public class ServiceAlunos implements Serializable{
             Aluno aluno = mapaAlunos.get(matricula);
             mapaAlunos.remove(matricula, aluno);
             listaAlunos.remove(aluno);
-            this.guardarDados();
+            gerenciarDisco.guardarDados(listaAlunos,mapaAlunos);;
             return true;
         }else{
             return false;
@@ -66,7 +70,7 @@ public class ServiceAlunos implements Serializable{
         aluno.setIdade(idade);
         aluno.setMedia(media);
         aluno.setCurso(curso);
-        this.guardarDados();
+        gerenciarDisco.guardarDados(listaAlunos,mapaAlunos);;
         return true;
         
     }
@@ -108,18 +112,10 @@ public class ServiceAlunos implements Serializable{
         System.out.println("------");
     }
     
-    public void guardarDados(){
-        ArmazenamentoDisco armazenar = new ArmazenamentoDisco();
-        armazenar.guardarDados(listaAlunos,mapaAlunos);
-    }
-    
-    public void lerDados(){
-        ArmazenamentoDisco ler = new ArmazenamentoDisco();
-        mapaAlunos = ler.lerEmDiscoMapa();
-        listaAlunos = ler.lerEmDiscoList();
-    }
-    
     public boolean temAlunos(){
+        if(listaAlunos == null || mapaAlunos == null){
+            return false;
+        }
         return !listaAlunos.isEmpty();
     }
     

@@ -1,14 +1,20 @@
 package sistema.de.gestao.de.alunos.app;
-import sistema.de.gestao.de.alunos.UI.UI;
+
 import java.io.Serializable;
+import sistema.de.gestao.de.alunos.Service.ServiceAlunos;
+import sistema.de.gestao.de.alunos.Storage.ArmazenamentoDisco;
+import sistema.de.gestao.de.alunos.UI.UI;
 
 public class SistemaDeGestaoDeAlunos implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
     public static void main(String[] args) {
-        UI programa = new UI();
         
+        ArmazenamentoDisco ar = new ArmazenamentoDisco();
+        ServiceAlunos ser = new ServiceAlunos(ar);
+        UI ui = new UI(ser);
+        
+        ui.iniciar();
     }
-    
 }

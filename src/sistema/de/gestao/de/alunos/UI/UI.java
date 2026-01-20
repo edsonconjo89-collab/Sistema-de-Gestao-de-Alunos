@@ -8,12 +8,15 @@ import java.util.List;
 
 public class UI {
     //String nome, int matricula, String curso, int idade
-    private final ServiceAlunos servico = new ServiceAlunos();
+    private ServiceAlunos servico;
     
-    public UI(){
-        this.menuPrincipal();
+    public UI(ServiceAlunos s){
+        servico = s;
     }
     
+    public void iniciar(){
+        this.menuPrincipal();
+    }
     private byte opcao;
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     
@@ -136,7 +139,7 @@ public class UI {
         n = lerInt();
         Aluno aluno = servico.buscarPorMatricula(n);
         if(aluno != null){
-            System.out.println("info_aluno");
+            System.out.println("\tinfo_aluno");
             System.out.println(aluno);
         }else{
             System.out.println("Aluno nao encontrado!");
@@ -236,12 +239,13 @@ public class UI {
             try{
                 opcao = Byte.parseByte(br.readLine());
                 
-                if(opcao >= 1 && opcao <= 99){
+                if(opcao >= 1 && opcao <= 9){
                     if(opcao >= 2 && opcao <= 8 && !servico.temAlunos()){
                         System.err.println("Nao pode efetuar essa operacao porque nao tem nehum aluno cadastrado!");
                     }else{
                         break;
                     }
+                    break;
                 }
             }catch(NumberFormatException e){
                 System.err.println("Digite apenas numeros validos!");
